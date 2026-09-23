@@ -57,7 +57,7 @@ def test5():
     assert result == expected, f"Тест 5 провален: ждали {expected}, получили {result}"
     print("Тест на отсутствие корней пройден")
 
-def main():
+def runTests():
     test1()
     test2()
     test3()
@@ -66,4 +66,29 @@ def main():
 
 
 if(__name__ == "__main__"):
-    main()
+    runTests()
+
+    while True:
+        try:
+            a = int(input("Введите a:"))
+            break
+        except ValueError:
+            print("ОШИБКА! a должно быть ЧИСЛОМ")
+
+    while True:
+        try:
+            b = int(input("Введите b:"))
+            break
+        except ValueError:
+            print("ОШИБКА! b должно быть ЧИСЛОМ")
+
+
+    while True:
+        try:
+            c = int(input("Введите c:"))
+            break
+        except ValueError:
+            print("ОШИБКА! c должно быть ЧИСЛОМ")
+
+
+    print(calcRoots(a, b, c))
