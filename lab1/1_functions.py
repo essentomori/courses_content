@@ -1,4 +1,19 @@
 import math
+import sys
+
+def getData(index, promt):
+    try:
+        coef = sys.argv[index]
+    except:
+        print(promt)
+        coef = input()
+
+    while True:
+        try:
+            coef = float(coef)
+            return coef
+        except ValueError:
+            coef = input("[ ERROR ] Введите число: ")
 
 def calcRoots(a, b, c):
     d = b**2 - 4 * a * c
@@ -68,27 +83,7 @@ def runTests():
 if(__name__ == "__main__"):
     runTests()
 
-    while True:
-        try:
-            a = int(input("Введите a:"))
-            break
-        except ValueError:
-            print("ОШИБКА! a должно быть ЧИСЛОМ")
-
-    while True:
-        try:
-            b = int(input("Введите b:"))
-            break
-        except ValueError:
-            print("ОШИБКА! b должно быть ЧИСЛОМ")
-
-
-    while True:
-        try:
-            c = int(input("Введите c:"))
-            break
-        except ValueError:
-            print("ОШИБКА! c должно быть ЧИСЛОМ")
-
-
+    a = getData(1, "Введите A:")
+    b = getData(2, "Введите B:")
+    c = getData(3, "Введите C:")
     print(calcRoots(a, b, c))
