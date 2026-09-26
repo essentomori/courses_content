@@ -1,4 +1,20 @@
 import math
+import sys
+
+class getData:
+    def getData(index, promt):
+        try:
+            coef = sys.argv[index]
+        except:
+            print(promt)
+            coef = input()
+
+        while True:
+            try:
+                coef = float(coef)
+                return coef
+            except:
+                coef = input(f"[ ERROR ] {promt}: ")
 
 class BiquadraticEquation:
     def __init__(self, a, b, c):
@@ -41,6 +57,10 @@ class EquasionSolver:
 if(__name__ == "__main__"):
     solver = EquasionSolver()                   # EquasionSolver solver;
 
-    my_eq = BiquadraticEquation(1, -5, 4)
+    a = getData.getData(1, "Введите A: ")
+    b = getData.getData(2, "Введите B: ")
+    c = getData.getData(3, "Введите C: ")
+
+    my_eq = BiquadraticEquation(a, b, c)
 
     print(solver.calcRoots(my_eq))

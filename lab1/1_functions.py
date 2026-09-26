@@ -13,7 +13,7 @@ def getData(index, promt):
             coef = float(coef)
             return coef
         except ValueError:
-            coef = input("[ ERROR ] Введите число: ")
+            coef = input(f"[ ERROR ] {promt} ")
 
 def calcRoots(a, b, c):
     d = b**2 - 4 * a * c
