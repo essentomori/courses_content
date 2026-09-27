@@ -1,4 +1,20 @@
 import math
+import sys
+
+def getData(index, promt):
+    try:
+        coef = sys.argv[index]
+    except:
+        print(promt)
+        coef = input()
+
+    while True:
+        try:
+            coef = float(coef)
+            return coef
+        except:
+            print(f"[ ERROR ] {promt}")
+            coef = input()
 
 def calcRoots(a, b, c):
     d = b**2 - 4 * a * c
@@ -10,8 +26,12 @@ def calcRoots(a, b, c):
             print("Корней нет, D < 0")
             return []
         case 0:
-            roots.append(math.sqrt(-b / (2 * a)))
-            roots.append(-math.sqrt(-b / (2 * a)))
+            rt = -b / (2 * a)
+            if rt > 0:
+                roots.append(math.sqrt(rt))
+                roots.append(-math.sqrt(rt))
+            elif rt == 0:
+                roots.append(math.sqrt(rt))
         case _:
             d = math.sqrt(d)
 
@@ -72,3 +92,8 @@ def launchTests():
 
 if(__name__ == "__main__"):
     launchTests()
+
+    a = getData(1, "Введите A:")
+    b = getData(2, "Введите B:")
+    c = getData(3, "Введите C:")
+    print(calcRoots(a,b,c))
